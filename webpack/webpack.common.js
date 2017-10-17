@@ -57,13 +57,14 @@ module.exports = function(options, metadata) {
         }
       }),
 
+      /*
       new SvgConcatPlugin({
         svgo: true,
         useHash: false,
         name: 'icons',
         fileName: '[name].svg',
         filesToConcat: SVG_SYMBOLS.map(svg => root(`src/${svg}`))
-      })
+      })*/
     ]
   };
 }

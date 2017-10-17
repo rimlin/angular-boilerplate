@@ -16,8 +16,8 @@ module.exports = function(options) {
     plugins: [
       new TsConfigPathsPlugin({
         configFilePath: options.aot
-          ? root('src/tsconfig.server.json')
-          : root('src/tsconfig.server.aot.json'),
+          ? root('./src/tsconfig.server.json')
+          : root('./src/tsconfig.server.aot.json'),
       }),
     ],
   };

@@ -56,3 +56,12 @@ typings/
 
 # dotenv environment variables file
 .env
+
+/dist/
+/build/
+/lib/
+/scripts/ansible/*.retry
+/yarn.lock
+.DS_Store
+.idea/
+.vscode

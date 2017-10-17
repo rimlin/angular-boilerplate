@@ -41,7 +41,7 @@ module.exports = function(options) {
       }),
 
       new TsConfigPathsPlugin({
-        configFileName: root('src/tsconfig.browser.json')
+        configFileName: root('./src/tsconfig.browser.json')
       }),
     ]
   };
