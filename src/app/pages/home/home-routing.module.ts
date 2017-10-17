@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ModulesEnum, PagesEnum } from '../../shared/enums';
 
-import { DashboardContainer, DashboardResolver } from './components/dashboard';
+import { DashboardContainer } from './containers';
+import { DashboardResolver } from './resolvers';
 
 export const homeRoutes: Routes = [
   {

@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DashboardContainer } from './dashboard';
+import { DashboardComponent } from './dashboard';
 
-export const CONTAINERS = [
-    DashboardContainer,
+export const COMPONENTS = [
+  DashboardComponent,
 ];
 
 @NgModule({
     declarations: [
-        ...CONTAINERS,
+        ...COMPONENTS,
     ],
-    imports: [ 
-        CommonModule 
+    imports: [
+        CommonModule
     ],
     exports: [
-        ...CONTAINERS
+        ...COMPONENTS
     ],
     providers: [],
 })

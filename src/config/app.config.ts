@@ -23,7 +23,7 @@ export const DevelopmentAppConfig: IAppConfig = {
 
 const env: ENV = process.env.ENV == 'development' ? 'development' : 'production';
 
-let finiteConfig: IAppConfig;
+export let finiteConfig: IAppConfig;
 
 if (env == 'development') {
   finiteConfig = DevelopmentAppConfig;

@@ -3,14 +3,14 @@ import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import * as fromHome from '../../reducers';
-import { ItemModel } from '../../../../shared/models';
+import * as fromHome from '../reducers';
+import { ItemModel } from '../../../shared/models';
 
 @Component({
   selector: 'wf-dashboard-container',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    Items: 
+    Items:
     <wf-dashboard [items]="items$ | async"></wf-dashboard>
   `
 })
@@ -22,6 +22,6 @@ export class DashboardContainer implements OnInit {
   }
 
   ngOnInit() {
-      
+
   }
 }
