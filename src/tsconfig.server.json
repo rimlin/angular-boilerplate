@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.json",
+  "angularCompilerOptions": {
+    "entryModule": "./app/server-app.module#ServerAppModule",
+    "skipMetadataEmit": true
+  },
+  "exclude": [
+    "./main.server.aot.ts",
+    "**/*.spec.ts"
+  ]
+}

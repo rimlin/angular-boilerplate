@@ -1,0 +1,77 @@
+
+// Color swatches
+
+// Grays
+$white:                 #fff;
+$black:					#000;
+
+// Brand colors
+$brand-primary:             $white;
+$brand-secondary:           $black;
+
+// Media queries
+// extra small screen / phone
+$screen-phone: 480px !default;
+
+// medium screen / desktop
+$screen-desktop: 960px !default;
+
+// breakpoint values
+$breakpoint-phone-max: max-width $screen-phone !default;
+$breakpoint-tablet-min: min-width ($screen-phone + 1) !default;
+$breakpoint-tablet-max: max-width $screen-desktop !default;
+$breakpoint-desktop-min: min-width ($screen-desktop + 1) !default;
+
+$breakpoint-container-min: min-width ($screen-desktop + 1) !default;
+
+
+// Scaffolding
+// Settings for some of the most global styles.
+$body-bg:                   $white;
+$text-color:                $black;
+
+$header-nav-bg:             $black;
+$header-home-bg:            $white;
+
+$container-desktop:         960px;
+$container-min-width:       320px;
+
+// Global textual link color.
+$link-primary-color:                $black;
+$link-primary-hover-color:          $brand-primary;
+$link-secondary-color:              $brand-primary;
+$link-secondary-hover-color:        $black;
+
+
+// Typography
+// Font, line-height for body text, headings, and more.
+$font-family-base:          Arial, sans-serif;
+$font-family-secondary:     Arial, sans-serif;
+
+$font-size-base:            20px;
+$font-size-small:           16px;
+
+$line-height-base:          1.428571429; // 20/14
+
+$letter-spacing-base:       0.2px;
+$letter-spacing-half:       0.5px;
+$letter-spacing-1px:        1px;
+
+$border-radius-base:        16px;
+$border-radius-100:         100px;
+
+$font-size-h1:              42px;
+$font-size-h2:              26px;
+$font-size-h3:              22px;
+
+$headings-font-family:      $font-family-secondary;
+$headings-font-weight:      bold;
+$headings-letter-spacing:   0.3px;
+$headings-line-height:      1;
+$headings-color:            $black;
+
+$headings-h1-line-height:   56px;
+$headings-h2-line-height:   36px;
+$headings-h3-line-height:   20px;
+
+$headings-h3-letter-spacing: $letter-spacing-base;

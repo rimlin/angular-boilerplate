@@ -1,0 +1,7 @@
+{
+  "watch": [
+    "build/*server.js",
+    "src/index.ejs"
+  ],
+  "ext": "js html"
+}

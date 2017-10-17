@@ -1,0 +1,19 @@
+
+.icon {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  cursor: pointer;
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  /*
+  @include svg-media('ok-blue') {
+    width: 25px;
+    height: 25px;
+  }
+  */
+
+}

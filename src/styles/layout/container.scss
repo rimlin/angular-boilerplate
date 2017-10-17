@@ -1,0 +1,15 @@
+
+.main-container {
+  width: $container-desktop;
+  margin: 0 auto;
+  text-align: left;
+
+  @include breakpoint(max-width ($container-desktop + 1)) {
+    width: 100%;
+    min-width: $container-min-width;
+  }
+}
+
+.flex {
+  display: flex;
+}

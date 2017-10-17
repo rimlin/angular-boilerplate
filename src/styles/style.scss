@@ -1,0 +1,22 @@
+/* Application styles */
+
+@import '~normalize.css';
+
+@import './global';
+@import './core/fonts';
+@import './core/images';
+@import './core/icons';
+
+@import './layout/container.scss';
+
+@import '~flexboxgrid';
+
+body {
+  -webkit-font-smoothing: antialiased;
+
+  background-color: $body-bg;
+  color: $brand-secondary;
+  font-family: $font-family-base;
+  font-weight: normal;
+  font-style: normal;
+}

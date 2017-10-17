@@ -1,0 +1,69 @@
+
+@import '~breakpoint-sass';
+@import './bowser.scss';
+
+@mixin svg-media($name) {
+  &-#{$name} {
+    svg {
+      @content;
+    }
+  }
+}
+
+@mixin image-retina($filename, $extension, $width, $height) {
+  $image-path: '/assets/images/#{$filename}';
+
+  position: relative;
+  background-image: url($image-path + '.' + $extension);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: $width * 1px;
+  height: $height * 1px;
+
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    & {
+      background-image: url($image-path + '@2x.' + $extension);
+    }
+  }
+}
+
+@mixin visible() {
+  visibility: visible;
+  opacity: 1;
+}
+
+@mixin invisible() {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@mixin ellipsis ($max-width){
+  max-width: $max-width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+
