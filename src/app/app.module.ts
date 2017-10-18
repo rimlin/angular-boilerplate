@@ -36,7 +36,7 @@ const ROOT_MODULES = [
     CommonModule,
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(routes, { useHash: true }),
+    RouterModule.forRoot(routes, { useHash: false }),
 
     CoreModule,
     SharedModule,
