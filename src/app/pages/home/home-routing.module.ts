@@ -3,34 +3,45 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ModulesEnum, PagesEnum } from '../../shared/enums';
 
+import { HomeComponent } from './home.component'
 import { DashboardContainer } from './containers';
-import { DashboardResolver } from './resolvers';
+import {
+  RESOLVERS,
+
+  DashboardResolver
+} from './resolvers';
 
 export const homeRoutes: Routes = [
   {
     path: '',
-    component: DashboardContainer,
-    resolve: {
-        resolver: DashboardResolver,
-    },
-    data: {
-      title: 'Dashboard',
-      module: ModulesEnum.HOME,
-      page: PagesEnum.HOME_DASHBOARD
-    },
+    component: HomeComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardContainer,
+        resolve: {
+            resolver: DashboardResolver,
+        },
+        data: {
+          title: 'Dashboard',
+          module: ModulesEnum.HOME,
+          page: PagesEnum.HOME_DASHBOARD
+        },
+      }
+    ]
   }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forChild(homeRoutes)
+    RouterModule.forChild(homeRoutes),
   ],
   exports: [
     RouterModule
   ],
   declarations: [],
   providers: [
-    DashboardResolver
+    ...RESOLVERS
   ],
 })
 export class HomeRoutingModule { }

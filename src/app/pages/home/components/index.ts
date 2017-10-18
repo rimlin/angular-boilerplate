@@ -1,22 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { DashboardComponent } from './dashboard';
+
+export * from './dashboard';
 
 export const COMPONENTS = [
   DashboardComponent,
 ];
-
-@NgModule({
-    declarations: [
-        ...COMPONENTS,
-    ],
-    imports: [
-        CommonModule
-    ],
-    exports: [
-        ...COMPONENTS
-    ],
-    providers: [],
-})
-export class ComponentsModule {}

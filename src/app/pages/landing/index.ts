@@ -6,36 +6,27 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { CONTAINERS } from './containers';
 import { COMPONENTS } from './components';
-import { EFFECTS } from './effects';
-import { SERVICES  } from './services';
-import { REDUCERS } from './reducers';
 
-import { HomeComponent } from './home.component';
+import { LandingComponent } from './landing.component';
 
-import { HomeRoutingModule } from './home-routing.module';
+import { LandingRoutingModule } from './landing-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    HomeRoutingModule,
-
-    StoreModule.forFeature('home', REDUCERS),
-
-    EffectsModule.forFeature([ ...EFFECTS ]),
-
-    ...SERVICES,
+    LandingRoutingModule,
   ],
   declarations: [
-    HomeComponent,
+    LandingComponent,
 
     ...CONTAINERS,
     ...COMPONENTS,
   ],
   exports: [
-    HomeComponent,
+    LandingComponent,
 
     ...CONTAINERS,
   ],
   providers: [],
 })
-export class HomeModule {}
+export class LandingModule {}

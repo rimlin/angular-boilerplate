@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
@@ -13,23 +12,34 @@ import {
 } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { CoreModule } from './core/core.module';
-//import { AuthModule } from './auth/auth.module';
+import { CookieModule } from 'ngx-cookie';
 
 import { routes } from './app-routing.module';
 import { reducers, metaReducers } from './reducers';
 import { CustomRouterStateSerializer } from './shared/utils';
 
-import { AppContainer } from './core/components/app';
+import { CoreModule } from './core';
+import { SharedModule } from './shared';
+
+import { APP_PAGES_MODULES } from './pages';
+
 import { AppConfig } from '../config/app.config';
+import { GlobalCssComponent } from './global-css.component';
+import { AppContainer } from './core/components/app';
+
+const ROOT_MODULES = [
+  CookieModule.forRoot()
+];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    BrowserAnimationsModule,
     HttpModule,
     RouterModule.forRoot(routes, { useHash: true }),
+
+    CoreModule,
+    SharedModule,
 
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer
@@ -66,9 +76,12 @@ import { AppConfig } from '../config/app.config';
      */
     EffectsModule.forRoot([]),
 
-    CoreModule.forRoot(),
-
-    //AuthModule.forRoot(),
+    ...APP_PAGES_MODULES,
+    ...ROOT_MODULES,
+  ],
+	declarations: [
+     AppContainer,
+     GlobalCssComponent,
   ],
   providers: [
     /**
@@ -78,6 +91,8 @@ import { AppConfig } from '../config/app.config';
      */
     { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer },
   ],
-  bootstrap: [AppContainer],
+  exports: [
+    AppContainer
+  ]
 })
 export class AppModule {}

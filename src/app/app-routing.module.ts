@@ -3,11 +3,13 @@ import { Routes } from '@angular/router';
 //import { NotFoundPageComponent } from './core/containers/not-found-page';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: '',
+    loadChildren: './pages/landing/index#LandingModule',
+  },
   {
     path: 'home',
     loadChildren: './pages/home/index#HomeModule',
-    //canActivate: [AuthGuard],
   },
   //{ path: '**', component: NotFoundPageComponent },
 ];

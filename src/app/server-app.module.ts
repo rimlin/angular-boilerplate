@@ -22,7 +22,7 @@ export function onBootstrap(appRef: ApplicationRef, transferState: TransferState
 }
 
 @NgModule({
-  bootstrap: [AppContainer],
+  bootstrap: [ AppContainer ],
   providers: [
     {
       provide: APP_BOOTSTRAP_LISTENER,

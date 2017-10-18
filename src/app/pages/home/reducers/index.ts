@@ -10,7 +10,7 @@ export interface State extends fromRoot.State {
   'home': HomeState;
 }
 
-export const reducers = {
+export const REDUCERS = {
   dashboard: fromDashboard.reducer,
 };
 

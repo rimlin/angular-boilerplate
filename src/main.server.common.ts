@@ -26,6 +26,17 @@ export function bootstrap(ServerAppModule: any) {
   app.set('view engine', 'html');
   app.set('views', 'src');
 
+  app.use('/', express.static(AppConfig.work_dir, { index: false }));
+
+  app.get('/*', (req, res) => {
+    console.time(`GET: ${req.originalUrl}`);
+    res.render(`../${AppConfig.work_dir}/index`, {
+      req: req,
+      res: res
+    });
+    console.timeEnd(`GET: ${req.originalUrl}`);
+  });
+
   app.listen(port, () => {
     console.log(`Listening at ${baseUrl} in ${AppConfig.env} mode`);
   });

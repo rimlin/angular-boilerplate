@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'wf-dashboard',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
