@@ -1,6 +1,5 @@
 import { createSelector } from '@ngrx/store';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import find from 'lodash/find';
 
 import { ItemModel } from '../../../shared/models';
 import { IItem } from '../../../shared/interfaces/item.interface';
@@ -31,16 +30,10 @@ export function reducer(
       };
     }
 
-    case dashboard.TOGGLE_SELECT: {
-      let item: ItemModel = find(state.entities, { id: action.payload });
-      let updateItem = {
-        ...item,
-        selected: !item.selected
-      };
-
+    case dashboard.TOGGLE_SELECT_SUCCESS: {
       return {
-        ...adapter.updateOne({ id: action.payload, changes: updateItem }, state),
-        selectedItemId: action.payload,
+        ...adapter.updateOne({ id: action.payload.id, changes: action.payload }, state),
+        selectedItemId: action.payload.selected ? action.payload.id : state.selectedItemId,
       };
     }
 

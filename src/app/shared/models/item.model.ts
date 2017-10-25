@@ -8,6 +8,6 @@ export class ItemModel {
     constructor(item: IItem) {
         this.id = item.id;
         this.name = item.name;
-        this.selected = false;
+        this.selected = item.selected;
     }
 }

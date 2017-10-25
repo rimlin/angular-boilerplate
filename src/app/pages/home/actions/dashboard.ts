@@ -5,6 +5,7 @@ import { ItemModel } from '../../../shared/models';
 export const ADD_ITEM = '[Dashboard] Add Item';
 export const LOAD_ITEM = '[Dashboard] Load Item';
 export const TOGGLE_SELECT = '[Dashboard] Select';
+export const TOGGLE_SELECT_SUCCESS = '[Dashboard] Select Success';
 
 export class AddItem implements Action {
   readonly type = ADD_ITEM;
@@ -24,4 +25,10 @@ export class ToggleSelect implements Action {
   constructor(public payload: number) {}
 }
 
-export type Actions = AddItem | LoadItem | ToggleSelect;
+export class ToggleSelectSuccess implements Action {
+  readonly type = TOGGLE_SELECT_SUCCESS;
+
+  constructor(public payload: ItemModel) {}
+}
+
+export type Actions = AddItem | LoadItem | ToggleSelect | ToggleSelectSuccess;
