@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 /**
- * This is a prod config to be merged with the Server config
+ * This is a server config which should be merged on top of common config
  */
 module.exports = function(options) {
   return {

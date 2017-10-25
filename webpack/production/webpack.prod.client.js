@@ -1,10 +1,9 @@
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const { root } = require('./helpers');
 
 /**
- * This is a prod config to be merged with the Server config
+ * This is a client config which should be merged on top of common config
  */
 module.exports = function(options) {
   return {
@@ -12,13 +11,6 @@ module.exports = function(options) {
       new webpack.LoaderOptionsPlugin({
         minimize: true,
         debug: false
-      }),
-
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'disabled', // 'disabled'|'server'
-        reportFilename: root('build/report.html'),
-        generateStatsFile: true,
-        statsFilename: root('build/stats.json'),
       }),
 
       new webpack.optimize.UglifyJsPlugin({

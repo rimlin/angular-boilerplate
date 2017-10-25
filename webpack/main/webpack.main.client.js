@@ -1,7 +1,5 @@
 const webpack = require('webpack');
-const { AotPlugin } = require('@ngtools/webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ScriptExtPlugin = require('script-ext-html-webpack-plugin');
 const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
 const { root } = require('./helpers');

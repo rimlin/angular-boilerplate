@@ -1,6 +1,6 @@
 import { InjectionToken } from '@angular/core';
 
-type ENV = 'development' | 'production';
+type ENV = 'development' | 'production' | 'stage';
 
 export interface IAppConfig {
   host: string;
@@ -9,7 +9,14 @@ export interface IAppConfig {
   work_dir: string;
 }
 
+// Setup config for available environments
 export const ProductionAppConfig: IAppConfig = {
+  host: process.env.HOST || 'localhost',
+  server_port: process.env.PORT || 8000,
+  work_dir: 'dist',
+};
+
+export const StageAppConfig: IAppConfig = {
   host: process.env.HOST || 'localhost',
   server_port: process.env.PORT || 8000,
   work_dir: 'dist',
@@ -21,18 +28,30 @@ export const DevelopmentAppConfig: IAppConfig = {
   work_dir: 'build',
 };
 
-const env: ENV = process.env.ENV == 'development' ? 'development' : 'production';
+
+// Determine environment
+let environment: ENV;
+
+if (process.env.ENV == 'development') {
+  environment = 'development';
+} else if (process.env.ENV == 'stage') {
+  environment = 'stage';
+} else {
+  environment = 'production';
+}
 
 export let finiteConfig: IAppConfig;
 
-if (env == 'development') {
+if (environment == 'development') {
   finiteConfig = DevelopmentAppConfig;
+} else if (environment == 'stage') {
+  finiteConfig = StageAppConfig;
 } else {
   finiteConfig = ProductionAppConfig;
 }
 
 export const AppConfig: IAppConfig = Object.assign({}, {
-  env
+  environment
 }, finiteConfig);
 
 export let APP_CONFIG = new InjectionToken<IAppConfig>('app.config');
