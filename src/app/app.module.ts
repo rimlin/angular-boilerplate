@@ -65,7 +65,7 @@ const ROOT_MODULES = [
      *
      * See: https://github.com/zalmoxisus/redux-devtools-extension
      */
-    AppConfig.env == 'development' ? StoreDevtoolsModule.instrument() : [],
+    AppConfig.environment == 'development' ? StoreDevtoolsModule.instrument() : [],
 
     /**
      * EffectsModule.forRoot() is imported once in the root module and

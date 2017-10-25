@@ -5,13 +5,13 @@ import * as fromAuth from '../reducers';
 import * as Auth from '../actions/auth';
 
 @Component({
-  selector: 'bc-login-page',
+  selector: 'wf-login-form-container',
   template: `
-    <bc-login-form
+    <wf-login-form
       (submitted)="onSubmit($event)"
       [pending]="pending$ | async"
       [errorMessage]="error$ | async">
-    </bc-login-form>
+    </wf-login-form>
   `,
   styles: [],
 })

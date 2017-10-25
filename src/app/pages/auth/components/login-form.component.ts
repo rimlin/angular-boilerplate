@@ -3,35 +3,31 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Authenticate } from '../models/user';
 
 @Component({
-  selector: 'bc-login-form',
+  selector: 'wf-login-form',
   template: `
-    <md-card>
-      <md-card-title>Login</md-card-title>
-      <md-card-content>
+    <div>
+      <div>Login</div>
+      <div>
         <form [formGroup]="form" (ngSubmit)="submit()">
-          <p>
-            <md-input-container>
-              <input type="text" mdInput placeholder="Username" formControlName="username">
-            </md-input-container>
-          </p>
+          <div>
+            <input type="text" mdInput placeholder="Username" formControlName="username">
+          </div>
 
-          <p>
-            <md-input-container>
-              <input type="password" mdInput placeholder="Password" formControlName="password">
-            </md-input-container>
-          </p>
+          <div>
+            <input type="password" mdInput placeholder="Password" formControlName="password">
+          </div>
 
-          <p *ngIf="errorMessage" class="loginError">
+          <div *ngIf="errorMessage" class="loginError">
             {{ errorMessage }}
-          </p>          
-        
-          <p class="loginButtons">
+          </div>
+
+          <div class="loginButtons">
             <button type="submit" md-button>Login</button>
-          </p>
+          </div>
 
         </form>
-      </md-card-content>
-    </md-card>
+      </div>
+    </div>
   `,
   styles: [
     `
@@ -39,12 +35,6 @@ import { Authenticate } from '../models/user';
       display: flex;
       justify-content: center;
       margin: 72px 0;
-    }
-
-    md-card-title,
-    md-card-content {
-      display: flex;
-      justify-content: center;
     }
 
     input {

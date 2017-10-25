@@ -38,6 +38,6 @@ export function bootstrap(ServerAppModule: any) {
   });
 
   app.listen(port, () => {
-    console.log(`Listening at ${baseUrl} in ${AppConfig.env} mode`);
+    console.log(`Listening at ${baseUrl} in ${AppConfig.environment} mode`);
   });
 };

@@ -25,7 +25,9 @@ module.exports = function(options, metadata) {
           test: /\.ts$/,
           loaders: [ // check usage of [['awesome-typescript-loader', 'angular2-template-loader']]
             '@ngtools/webpack',
-            'angular-router-loader'
+            options.aot
+              ? 'angular-router-loader?aot=true&genDir=src/$$_gendir/'
+              : 'angular-router-loader'
           ]
         },
         { test: /\.css$/, loader: 'raw-loader' },

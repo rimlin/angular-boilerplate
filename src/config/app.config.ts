@@ -5,7 +5,7 @@ type ENV = 'development' | 'production' | 'stage';
 export interface IAppConfig {
   host: string;
   server_port: number;
-  env?: ENV;
+  environment?: ENV;
   work_dir: string;
 }
 
