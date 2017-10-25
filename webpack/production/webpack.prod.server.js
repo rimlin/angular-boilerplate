@@ -29,7 +29,7 @@ module.exports = function(options) {
           join_vars: true,
           negate_iife: false // we need this for lazy v8
         },
-        sourceMap: true
+        sourceMap: false
       }),
     ]
   };
