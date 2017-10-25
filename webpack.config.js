@@ -39,6 +39,8 @@ module.exports = function(options, webpackOptions) {
   let serverMainConfig = ServerConfig.main(options);
   let clientMainConfig = ClientConfig.main(options);
 
+  console.log(`Webpack config init on ${env} environment`);
+
   if (options.aot) {
     console.log(
       `Running build for ${options.client

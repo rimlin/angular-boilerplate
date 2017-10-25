@@ -11,6 +11,7 @@ const { root } = require('./helpers');
  */
 module.exports = function(options, metadata) {
   return {
+    devtool: 'source-map',
     resolve: {
       extensions: ['.ts', '.js']
     },

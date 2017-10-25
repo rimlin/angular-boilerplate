@@ -30,7 +30,7 @@ export const DevelopmentAppConfig: IAppConfig = {
 
 
 // Determine environment
-let environment: ENV;
+export let environment: ENV;
 
 if (process.env.ENV == 'development') {
   environment = 'development';

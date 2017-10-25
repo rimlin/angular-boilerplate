@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
-const { root } = require('./helpers');
+const { root } = require('../helpers');
 
 /**
  * This is a client config which should be merged on top of common config
