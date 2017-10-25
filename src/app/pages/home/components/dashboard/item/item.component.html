@@ -1,0 +1,9 @@
+
+<div
+  (click)="handleSelect.emit()"
+  [ngClass]="{
+    'dashboard__item': true,
+    'dashboard__item--selected': model.selected
+  }">
+  #{{ model.id }}: {{ model.name }}
+</div>

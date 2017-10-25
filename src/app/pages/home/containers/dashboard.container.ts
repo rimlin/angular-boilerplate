@@ -5,23 +5,43 @@ import { Observable } from 'rxjs/Observable';
 
 import * as fromHome from '../reducers';
 import { ItemModel } from '../../../shared/models';
+import * as dashboard from '../actions/dashboard';
 
 @Component({
   selector: 'wf-dashboard-container',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     Items:
-    <wf-dashboard [items]="items$ | async"></wf-dashboard>
+    <wf-dashboard
+      (handleAddItem)="onAddItem()"
+      [items]="items$ | async">
+    </wf-dashboard>
   `
 })
 export class DashboardContainer implements OnInit {
   items$: Observable<ItemModel[]>;
 
+  length: number = 0;
+
   constructor(private store: Store<fromHome.State>) {
+    this.store.dispatch(new dashboard.LoadItem(1));
+
     this.items$ = store.select(fromHome.getAllDashboardItems);
+    this.items$.subscribe((res) => {
+      this.length = res.length;
+    });
   }
 
   ngOnInit() {
 
+  }
+
+  onAddItem() {
+    let id = this.length + 1;
+
+    this.store.dispatch(new dashboard.AddItem({
+      id,
+      name: `Item #${id}`
+    }));
   }
 }

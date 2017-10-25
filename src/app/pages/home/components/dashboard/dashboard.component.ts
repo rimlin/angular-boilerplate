@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, Output, Input, EventEmitter, } from '@angular/core';
 
 @Component({
     selector: 'wf-dashboard',
@@ -9,7 +9,13 @@ import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core
 export class DashboardComponent implements OnInit {
     @Input() items;
 
+    @Output() handleAddItem: EventEmitter<any> = new EventEmitter();
+
     constructor() { }
 
     ngOnInit() { }
+
+    addItem() {
+      this.handleAddItem.emit();
+    }
 }

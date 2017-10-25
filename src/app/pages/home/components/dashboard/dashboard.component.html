@@ -1,1 +1,8 @@
-dashboards items...
+
+<br/>
+<button (click)="addItem()">Add</button>
+
+<div *ngFor="let item of items">
+  <wf-dashboard-item-container [itemModel]="item"></wf-dashboard-item-container>
+</div>
+

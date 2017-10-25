@@ -4,7 +4,7 @@ import { ItemModel } from '../../../shared/models';
 
 export const ADD_ITEM = '[Dashboard] Add Item';
 export const LOAD_ITEM = '[Dashboard] Load Item';
-export const SELECT = '[Dashboard] Select';
+export const TOGGLE_SELECT = '[Dashboard] Select';
 
 export class AddItem implements Action {
   readonly type = ADD_ITEM;
@@ -18,10 +18,10 @@ export class LoadItem implements Action {
   constructor(public payload: number) {}
 }
 
-export class Select implements Action {
-  readonly type = SELECT;
+export class ToggleSelect implements Action {
+  readonly type = TOGGLE_SELECT;
 
   constructor(public payload: number) {}
 }
 
-export type Actions = AddItem | Select;
+export type Actions = AddItem | LoadItem | ToggleSelect;

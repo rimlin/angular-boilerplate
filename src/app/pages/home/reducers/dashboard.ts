@@ -1,5 +1,7 @@
 import { createSelector } from '@ngrx/store';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import find from 'lodash/find';
+
 import { ItemModel } from '../../../shared/models';
 import { IItem } from '../../../shared/interfaces/item.interface';
 import * as dashboard from '../actions/dashboard';
@@ -24,14 +26,20 @@ export function reducer(
   switch (action.type) {
     case dashboard.ADD_ITEM: {
       return {
-        ...adapter.addOne(action.payload, state),
+        ...adapter.addOne(new ItemModel(action.payload), state),
         selectedItemId: state.selectedItemId,
       };
     }
 
-    case dashboard.SELECT: {
+    case dashboard.TOGGLE_SELECT: {
+      let item: ItemModel = find(state.entities, { id: action.payload });
+      let updateItem = {
+        ...item,
+        selected: !item.selected
+      };
+
       return {
-        ...state,
+        ...adapter.updateOne({ id: action.payload, changes: updateItem }, state),
         selectedItemId: action.payload,
       };
     }

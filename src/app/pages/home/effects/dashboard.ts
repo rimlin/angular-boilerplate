@@ -20,11 +20,11 @@ import { IItem } from '../../../shared/interfaces/item.interface';
 @Injectable()
 export class DashboardEffects {
   @Effect()
-  search$: Observable<Action> = this.actions$
+  addItem$: Observable<Action> = this.actions$
     .ofType<dashboard.LoadItem>(dashboard.LOAD_ITEM)
     .map(action => action.payload)
     .switchMap(itemId => {
-      return Observable.of(new dashboard.AddItem({ id: itemId, name: `Item ${itemId}` }));
+      return Observable.of(new dashboard.AddItem({ id: itemId, name: `Effect ${itemId}` }));
     });
 
   constructor(
