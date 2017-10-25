@@ -8,6 +8,7 @@ import { Component, ChangeDetectionStrategy, OnInit, Output, Input, EventEmitter
 })
 export class DashboardComponent implements OnInit {
     @Input() items;
+    @Input() lastSelectedItem;
 
     @Output() handleAddItem: EventEmitter<any> = new EventEmitter();
 

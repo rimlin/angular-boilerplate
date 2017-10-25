@@ -14,6 +14,7 @@ import * as dashboard from '../actions/dashboard';
     Items:
     <wf-dashboard
       (handleAddItem)="onAddItem()"
+      [lastSelectedItem]="lastSelect"
       [items]="items$ | async">
     </wf-dashboard>
   `
@@ -21,6 +22,7 @@ import * as dashboard from '../actions/dashboard';
 export class DashboardContainer implements OnInit {
   items$: Observable<ItemModel[]>;
 
+  lastSelect: ItemModel;
   length: number = 0;
 
   constructor(private store: Store<fromHome.State>) {
@@ -29,6 +31,10 @@ export class DashboardContainer implements OnInit {
     this.items$ = store.select(fromHome.getAllDashboardItems);
     this.items$.subscribe((res) => {
       this.length = res.length;
+    });
+
+    store.select(fromHome.getSelectedItem).subscribe(itemModel => {
+      this.lastSelect = itemModel;
     });
   }
 

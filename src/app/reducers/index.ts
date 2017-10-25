@@ -5,9 +5,10 @@ import {
   ActionReducer,
   MetaReducer,
 } from '@ngrx/store';
+import * as fromRouter from '@ngrx/router-store';
+
 import { AppConfig } from '../../config/app.config';
 import { RouterStateUrl } from '../shared/utils';
-import * as fromRouter from '@ngrx/router-store';
 
 /**
  * storeFreeze prevents state from being mutated. When mutation occurs, an
@@ -60,7 +61,7 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
  * that will be composed to form the root meta-reducer.
  */
 export const metaReducers: MetaReducer<State>[] = AppConfig.env != 'production'
-  ? [logger, storeFreeze]
+  ? window != undefined ? [logger, storeFreeze] : [logger]
   : [];
 
 /**

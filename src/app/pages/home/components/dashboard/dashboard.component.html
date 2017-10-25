@@ -1,7 +1,12 @@
 
-<br/>
-<button (click)="addItem()">Add</button>
+<br/> <button (click)="addItem()">Add item</button>
 
+<ng-container *ngIf="lastSelectedItem">
+  <br/><br/><br/> Last selected model:
+  <wf-dashboard-item-container [itemModel]="lastSelectedItem"></wf-dashboard-item-container>
+</ng-container>
+
+<br/><br/> All: <br/>
 <div *ngFor="let item of items">
   <wf-dashboard-item-container [itemModel]="item"></wf-dashboard-item-container>
 </div>

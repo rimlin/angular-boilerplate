@@ -1,4 +1,5 @@
 const { AotPlugin } = require('@ngtools/webpack');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
 const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
 const { root } = require('./helpers');
@@ -18,6 +19,15 @@ module.exports = function(options) {
         configFilePath: options.aot
           ? root('./src/tsconfig.server.json')
           : root('./src/tsconfig.server.aot.json'),
+      }),
+
+      new DefinePlugin({
+        window: undefined,
+        document: undefined,
+        location: JSON.stringify({
+            protocol: 'http', // `http` or `https`
+            host: 'localhost',
+        })
       }),
     ],
   };

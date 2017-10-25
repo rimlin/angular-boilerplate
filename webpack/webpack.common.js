@@ -21,7 +21,13 @@ module.exports = function(options, metadata) {
     },
     module: {
       rules: [
-        { test: /\.ts$/, loader: '@ngtools/webpack' }, // [['awesome-typescript-loader', 'angular2-template-loader']]
+        {
+          test: /\.ts$/,
+          loaders: [ // check usage of [['awesome-typescript-loader', 'angular2-template-loader']]
+            '@ngtools/webpack',
+            'angular-router-loader'
+          ]
+        },
         { test: /\.css$/, loader: 'raw-loader' },
         { test: /\.html$/, loader: 'raw-loader' },
         {
