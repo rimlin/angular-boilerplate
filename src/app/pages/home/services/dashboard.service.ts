@@ -1,3 +1,4 @@
+import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { IItem } from '../../../shared/interfaces/item.interface';

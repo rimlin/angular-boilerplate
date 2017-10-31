@@ -8,7 +8,7 @@ import { CONTAINERS } from './containers';
 import { COMPONENTS } from './components';
 import { EFFECTS } from './effects';
 import { SERVICES  } from './services';
-import { REDUCERS } from './reducers';
+import { reducers } from './reducers';
 
 import { HomeComponent } from './home.component';
 
@@ -19,7 +19,7 @@ import { HomeRoutingModule } from './home-routing.module';
     CommonModule,
     HomeRoutingModule,
 
-    StoreModule.forFeature('home', REDUCERS),
+    StoreModule.forFeature('home', reducers),
 
     EffectsModule.forFeature([ ...EFFECTS ]),
   ],
