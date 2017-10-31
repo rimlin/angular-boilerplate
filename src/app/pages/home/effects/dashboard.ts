@@ -1,6 +1,7 @@
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/skip';
 import 'rxjs/add/operator/takeUntil';
@@ -23,7 +24,7 @@ import { DashboardService } from '../services/dashboard.service';
 @Injectable()
 export class DashboardEffects {
   @Effect()
-  addItem$: Observable<Action> = this.actions$
+  loadItem$: Observable<Action> = this.actions$
     .ofType<dashboard.LoadItem>(dashboard.LOAD_ITEM)
     .map(action => action.payload)
     .switchMap(itemId => {

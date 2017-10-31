@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard reducer ADD_ITEM should add item to initial state 1`] = `
+Object {
+  "entities": Object {
+    "1": ItemModel {
+      "id": 1,
+      "name": "Test",
+      "selected": undefined,
+    },
+  },
+  "ids": Array [
+    1,
+  ],
+  "selectedItemId": null,
+}
+`;
+
+exports[`Dashboard reducer Selectors getSelectedId should return the selected id 1`] = `0`;
