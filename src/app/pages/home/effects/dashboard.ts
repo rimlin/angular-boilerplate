@@ -18,6 +18,7 @@ import * as fromHome from '../reducers';
 import * as dashboard from '../actions/dashboard';
 import { ItemModel } from '../../../shared/models';
 import { IItem } from '../../../shared/interfaces/item.interface';
+import { DashboardService } from '../services/dashboard.service';
 
 @Injectable()
 export class DashboardEffects {
@@ -26,7 +27,9 @@ export class DashboardEffects {
     .ofType<dashboard.LoadItem>(dashboard.LOAD_ITEM)
     .map(action => action.payload)
     .switchMap(itemId => {
-      return Observable.of(new dashboard.AddItem({ id: itemId, name: `Effect ${itemId}` }));
+      return this.dashboardService
+        .loadItem(itemId)
+        .map(item => new dashboard.AddItem(item));
     });
 
   @Effect()
@@ -47,6 +50,7 @@ export class DashboardEffects {
 
   constructor(
     private actions$: Actions,
-    private store: Store<fromHome.State>
+    private store: Store<fromHome.State>,
+    private dashboardService: DashboardService,
   ) {}
 }

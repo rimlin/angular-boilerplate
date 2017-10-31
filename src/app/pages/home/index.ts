@@ -22,8 +22,6 @@ import { HomeRoutingModule } from './home-routing.module';
     StoreModule.forFeature('home', REDUCERS),
 
     EffectsModule.forFeature([ ...EFFECTS ]),
-
-    ...SERVICES,
   ],
   declarations: [
     HomeComponent,
@@ -36,6 +34,8 @@ import { HomeRoutingModule } from './home-routing.module';
 
     ...CONTAINERS,
   ],
-  providers: [],
+  providers: [
+    ...SERVICES,
+  ],
 })
 export class HomeModule {}
