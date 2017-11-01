@@ -1,0 +1,9 @@
+<div class="dropzone"
+  wfImageUploader
+  (filesChangeEmiter)="onFilesChange($event)"
+  [allowedExtensions]="allowedExtensions">
+  <div class="text-wrapper">
+    <div class="centered">Drop your file here!</div>
+  </div>
+</div>
+<input type="file" multiple (change)="onFilesSelect($event)">

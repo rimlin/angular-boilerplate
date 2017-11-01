@@ -24,7 +24,7 @@ const DEFAULT_DATA_MIN = 0;
 const DEFAULT_DATA_MAX = 10;
 
 @Component({
-    selector: 'heatmap',
+    selector: 'wf-heatmap',
     styleUrls: ['./heatmap.component.scss'],
     template: `
       <div

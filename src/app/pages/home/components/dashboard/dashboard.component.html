@@ -14,10 +14,16 @@
 
 <br/>
 
-<heatmap
-  img="/assets/images/cat.jpg"
-  [width]="width"
-  [height]="height"
-  [dataMax]="dataMax"
-  [data]="data">
-</heatmap>
+<wf-image-uploader (selectImages)="onSelectImages($event)"></wf-image-uploader>
+
+<br/>
+
+<div *ngFor="let item of files | async">
+  <wf-heatmap
+    [img]="item.image.src"
+    [width]="item.image.width"
+    [height]="item.image.height"
+    [dataMax]="item.heatmap.dataMax"
+    [data]="item.heatmap.data">
+  </wf-heatmap>
+</div>

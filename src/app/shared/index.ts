@@ -7,6 +7,7 @@ import { ComponentsModule } from './components';
 import { DirectivesModule } from './directives';
 import { PipesModule } from './pipes';
 import { REFS } from './refs';
+import { MODULES } from './modules';
 
 const EXTERNAL_MODULES = [
 
@@ -22,6 +23,7 @@ const EXTERNAL_MODULES = [
     DirectivesModule,
     PipesModule,
 
+    ...MODULES,
     ...EXTERNAL_MODULES
   ],
   exports: [
@@ -29,6 +31,7 @@ const EXTERNAL_MODULES = [
     FormsModule,
     ComponentsModule,
 
+    ...MODULES,
     ...EXTERNAL_MODULES,
   ],
   declarations: [

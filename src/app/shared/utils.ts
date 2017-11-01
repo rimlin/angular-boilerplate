@@ -24,3 +24,18 @@ export class CustomRouterStateSerializer
     return { url, queryParams };
   }
 }
+
+
+export function getValidFromFileList(files: FileList, allowedExtensions: Array<string>) {
+  let validFiles: Array<File> = [];
+
+  Array.from(files).forEach((file: File) => {
+    let fileExtension = file.name.split('.')[file.name.split('.').length - 1];
+
+    if (allowedExtensions.includes(fileExtension)) {
+      validFiles.push(file);
+    }
+  });
+
+  return validFiles;
+}
