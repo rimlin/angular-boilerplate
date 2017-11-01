@@ -27,6 +27,7 @@ const EXTERNAL_MODULES = [
   exports: [
     CommonModule,
     FormsModule,
+    ComponentsModule,
 
     ...EXTERNAL_MODULES,
   ],

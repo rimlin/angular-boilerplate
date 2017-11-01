@@ -3,7 +3,7 @@ import { ConnectionBackend, Http, Request, URLSearchParams, RequestOptions, Requ
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { TransferState } from '../transfer-state/transfer-state';
-import omit from 'lodash/omit';
+import omit from 'lodash-es/omit';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';

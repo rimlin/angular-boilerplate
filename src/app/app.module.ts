@@ -39,7 +39,7 @@ const ROOT_MODULES = [
     RouterModule.forRoot(routes, { useHash: false }),
 
     CoreModule,
-    SharedModule,
+    //SharedModule,
 
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer

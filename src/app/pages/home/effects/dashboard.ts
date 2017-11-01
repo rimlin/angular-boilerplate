@@ -13,7 +13,7 @@ import { Scheduler } from 'rxjs/Scheduler';
 import { async } from 'rxjs/scheduler/async';
 import { empty } from 'rxjs/observable/empty';
 import { of } from 'rxjs/observable/of';
-import find from 'lodash/find';
+import find from 'lodash-es/find';
 
 import * as fromHome from '../reducers';
 import * as dashboard from '../actions/dashboard';

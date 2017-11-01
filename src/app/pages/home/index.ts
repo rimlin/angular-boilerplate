@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
+import { SharedModule } from '../../shared';
 import { CONTAINERS } from './containers';
 import { COMPONENTS } from './components';
 import { EFFECTS } from './effects';
@@ -17,6 +18,7 @@ import { HomeRoutingModule } from './home-routing.module';
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     HomeRoutingModule,
 
     StoreModule.forFeature('home', reducers),
